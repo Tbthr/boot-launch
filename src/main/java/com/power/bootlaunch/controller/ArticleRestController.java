@@ -1,9 +1,11 @@
 package com.power.bootlaunch.controller;
 
 import com.power.bootlaunch.model.Article;
+import com.power.bootlaunch.service.ArticleRestService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
 import java.util.Date;
 
 @Slf4j
@@ -25,9 +27,13 @@ public class ArticleRestController {
 //    params： HTTP请求中必须包含某些参数值的时候，才允许被注解标注的方法处理请求。
 //    headers： HTTP请求中必须包含某些指定的header值，才允许被注解标注的方法处理请求。
 
+    @Resource
+    ArticleRestService articleRestService;
+
     @PostMapping(value = "/article")
     public AjaxResponse saveArticle(@RequestBody Article article) {
         log.info("saveArticle：{}", article);
+        log.info("articleRestService return :" + articleRestService.saveArticle(article));
         return AjaxResponse.success(article);
     }
 
