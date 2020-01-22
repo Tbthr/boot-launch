@@ -1,0 +1,56 @@
+
+[[_definitions]]
+== Definitions
+
+[[_ajaxresponse]]
+=== AjaxResponse
+
+[options="header", cols=".^3,.^4"]
+|===
+|Name|Schema
+|**code** +
+__optional__|integer (int32)
+|**data** +
+__optional__|object
+|**isok** +
+__optional__|boolean
+|**message** +
+__optional__|string
+|===
+
+
+[[_article]]
+=== Article
+
+[options="header", cols=".^3,.^4"]
+|===
+|Name|Schema
+|**author** +
+__optional__|string
+|**content** +
+__optional__|string
+|**createTime** +
+__optional__|string (date-time)
+|**id** +
+__optional__|integer (int64)
+|**reader** +
+__optional__|< <<_reader,Reader>> > array
+|**title** +
+__optional__|string
+|===
+
+
+[[_reader]]
+=== Reader
+
+[options="header", cols=".^3,.^4"]
+|===
+|Name|Schema
+|**age** +
+__optional__|integer (int32)
+|**name** +
+__optional__|string
+|===
+
+
+
