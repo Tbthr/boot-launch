@@ -8,7 +8,35 @@ spring:
       additional-paths: src/main/java #额外新增的热加载目录
 #     exclude: (热加载排除目录)
 
-
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+8
+
+family:
+  family-name: "happy family" # family-name = familyName = family_name 支持松散的语法
+  father:
+    name: power
+    age: ${random.int[20,30]}
+  mother:
+    alias:
+      - lovly
+      - aily
+  child:
+    name: strong
+    age: ${random.int(6)}
+    friends:
+#      - hobby: basketball
+#        sex: female
+#      - hobby: football
+#        sex: male
+      - {hobby: basketball,sex: female}
+      - {hobby: football,sex: male}
+
+#  随机数占位符
+#  ${random.value}
+#  ${random.int}
+#  ${random.long}
+#  ${random.int(10)}
+#  ${random.int[1024,65536]}
+
+#  ${xxxxx.yyyy:默认值}
