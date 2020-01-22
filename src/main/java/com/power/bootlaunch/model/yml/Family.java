@@ -7,8 +7,6 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.annotation.Validated;
 
-import javax.validation.constraints.NotEmpty;
-
 @Data
 @Component
 @Validated //配合@ConfigurationProperties进行属性校验
@@ -18,7 +16,7 @@ public class Family {
 
     //    @Value("${family.family-name}") //单个注入
 
-    @NotEmpty
+//    @NotEmpty
     private String familyName;
     private Father father;
     private Mother mother;
