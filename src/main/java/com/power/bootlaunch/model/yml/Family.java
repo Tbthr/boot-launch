@@ -3,13 +3,19 @@ package com.power.bootlaunch.model.yml;
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
+import org.springframework.validation.annotation.Validated;
+
+import javax.validation.constraints.NotEmpty;
 
 @Data
 @Component
+@Validated //配合@ConfigurationProperties进行属性校验
 @ConfigurationProperties(prefix = "family") //批量注入
 public class Family {
 
-//    @Value("${family.family-name}") //单个注入
+    //    @Value("${family.family-name}") //单个注入
+
+    @NotEmpty
     private String familyName;
     private Father father;
     private Mother mother;
