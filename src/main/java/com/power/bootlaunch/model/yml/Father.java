@@ -3,14 +3,12 @@ package com.power.bootlaunch.model.yml;
 import lombok.Data;
 import org.springframework.validation.annotation.Validated;
 
-import javax.validation.constraints.Min;
-
 @Data
 @Validated
 public class Father {
     private String name;
 
-    @Min(50)
+//    @Min(50)
     private Integer age;
 //    校验失败则有：
 //    Caused by: org.springframework.boot.context.properties.bind.validation.BindValidationException:
