@@ -1,13 +1,9 @@
-server:
-  port: 8888
+#------全局配置文件------
 
+#需要使用的配置文件
 spring:
-  devtools:
-    restart:
-      enabled: true #热加载生效
-      additional-paths: src/main/java #额外新增的热加载目录
-#     exclude: (热加载排除目录)
-
+  profiles:
+    active: dev
 
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
