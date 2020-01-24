@@ -10,4 +10,9 @@ spring:
       additional-paths: src/main/java #额外新增的热加载目录
   #     exclude: (热加载排除目录)
 
+  datasource:
+    url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: root
+    password: 8880
+    driver-class-name: com.mysql.cj.jdbc.Driver
 
