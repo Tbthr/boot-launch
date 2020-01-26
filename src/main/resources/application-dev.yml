@@ -1,5 +1,4 @@
 #------开发环境配置文件------
-
 server:
   port: 8888
 
@@ -11,8 +10,18 @@ spring:
   #     exclude: (热加载排除目录)
 
   datasource:
-    url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf-8&useSSL=false
-    username: root
-    password: 8880
-    driver-class-name: com.mysql.cj.jdbc.Driver
+    primary:
+      jdbc-url: jdbc:mysql://localhost:3306/test?useUnicode=true
+                &characterEncoding=utf-8&useSSL=false
+                &allowPublicKeyRetrieval=true # MySQL 8.0 Public Key Retrieval is not allowed错误的解决方法
+      username: root
+      password: 8880
+      driver-class-name: com.mysql.cj.jdbc.Driver
+    secondary:
+      jdbc-url: jdbc:mysql://localhost:3306/test2?useUnicode=true
+                &characterEncoding=utf-8&useSSL=false
+                &allowPublicKeyRetrieval=true
+      username: root
+      password: 8880
+      driver-class-name: com.mysql.cj.jdbc.Driver
 
