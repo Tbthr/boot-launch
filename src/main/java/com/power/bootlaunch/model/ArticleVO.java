@@ -13,7 +13,7 @@ import java.util.List;
 @NoArgsConstructor //无参构造函数
 @Builder //对象属性赋值
 //@JsonPropertyOrder(value={"content","title"}) //改变子属性在JSON序列化中的默认定义的顺序
-public class Article {
+public class ArticleVO {
 
 //    @JsonIgnore //排除某个属性不做序列化与反序列化
     private Long id;
