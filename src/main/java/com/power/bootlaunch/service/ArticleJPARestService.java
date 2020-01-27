@@ -3,8 +3,11 @@ package com.power.bootlaunch.service;
 import com.power.bootlaunch.dao.Article;
 import com.power.bootlaunch.model.ArticleVO;
 import com.power.bootlaunch.repository.ArticleRepository;
-import com.power.bootlaunch.utils.DozerUtils;
 import org.dozer.Mapper;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -41,8 +44,12 @@ public class ArticleJPARestService {
         return dozerMapper.map(article,ArticleVO.class);
     }
 
-    public List<ArticleVO> getAll() {
-        List<Article> articleLis = articleRepository.findAll();  //查询article表的所有数据
-        return DozerUtils.mapList(articleLis,ArticleVO.class);
+    public List<Article> getAll() {
+        Pageable pageable = PageRequest.of(0, 10,Sort.by("author").ascending()
+                .and(Sort.by("createTime").descending()));
+        // 按照author的升序排序，再按照createTime的降序进行排序
+
+        Page<Article> articlePage = articleRepository.findAll(pageable);
+        return articlePage.getContent();
     }
 }

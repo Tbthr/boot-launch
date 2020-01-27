@@ -17,8 +17,9 @@ import java.util.Date;
 // 如FlowType类名对应表名flow_type
 public class Article {
 
-    @Id //指定这个字段为表的主键
-    @GeneratedValue(strategy = GenerationType.IDENTITY) //指定主键的生成方式，一般主键为自增的话，就采用GenerationType.IDENTITY的生成方式
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //指定主键的生成方式，一般主键为自增的话，就采用GenerationType.IDENTITY的生成方式
     private Long id;
 
     @Column(nullable = false, length = 32) //注解针对一个字段，对应表中的一列
