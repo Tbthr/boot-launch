@@ -1,6 +1,6 @@
 package com.power.bootlaunch.controller;
 
-import com.power.bootlaunch.model.ArticleVO;
+import com.power.bootlaunch.jpa.testdb.Article;
 import com.power.bootlaunch.service.ArticleJPARestService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
@@ -16,7 +16,7 @@ public class ArticleRestController {
     ArticleJPARestService articleJPARestService;
 
     @PostMapping(value = "/articles")
-    public AjaxResponse saveArticle(@RequestBody ArticleVO article) {
+    public AjaxResponse saveArticle(@RequestBody Article article) {
        articleJPARestService.saveArticle(article);
         return AjaxResponse.success(article);
     }
@@ -28,7 +28,7 @@ public class ArticleRestController {
     }
 
     @PutMapping(value = "/articles/{id}")
-    public AjaxResponse updateArticle(@PathVariable Long id, @RequestBody ArticleVO article) {
+    public AjaxResponse updateArticle(@PathVariable Long id, @RequestBody Article article) {
         articleJPARestService.updateArticle(article);
         return AjaxResponse.success(article);
     }
