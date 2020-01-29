@@ -9,6 +9,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -23,6 +24,7 @@ public class ArticleJPARestService {
     @Resource
     private MessageRepository messageRepository;
 
+    @Transactional //加入这个才能发挥事务管理功能
     public void saveArticle(Article article) {
         articleRepository.save(article);
 
@@ -30,6 +32,7 @@ public class ArticleJPARestService {
         message.setName("666");
         message.setContent("fine !");
         messageRepository.save(message);
+        int a= 2/0;
     }
 
     public void deleteArticle(Long id) {
